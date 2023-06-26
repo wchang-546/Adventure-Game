@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Adventure Game</title>
+        <link rel ="stylesheet" type = "text/css" href="Stylesheet.css">
+        <script defer src="index.js"></script>
+    </head>
+    <body>
+        <header>
+            <nav id = "top-bar">
+                <form id="character-search" class="form-submit">
+                    <div>
+                        <label for="search" class = "form-submit">Looking to replay a previous character? search here!</label>
+                        <input type="text" name="search" placeholder="Enter Character Name" id = "char-search" required>
+                        <input type="submit" value="submit" id="char-input-confirm">
+                    </div>
+                </form>
+                <div id ="pregen-characters" class = "character-list">
+                    <ul id = "characters"class = "character-list">
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <div id = "stats" class = "stats-bar">
+            <ul id = "stats-ul">
+                <li id = "char-name">Name</li>
+                <li id = "hitpoints"><span id = "health-number">10/10</span></li>
+                <li id = "str" class = "stat">STR:</li>
+                <li id = "dex" class = "stat">DEX: </li>
+                <li id = "con" class = "stat">CON: </li>
+                <li id = "wis" class = "stat">WIS: </li>
+                <li id = "int" class = "stat">INT: </li>
+                <li id = "cha" class = "stat">CHA: </li>
+            </ul>
+        </div>
+        <div id = "initialized-character-generator">
+            <form id = "character-gen">
+
+                <h2 id = "character-gen-name">Create your Character</h2>
+                <p class = "paragraph">Generated characters will be saved at the start, allowing you to replay as your favorite character<br><hr>
+                Characters can have anywhere between 8 and 15 for their starting ability scores.<br><hr>
+                Ability scores have a modifier attached to them--the modifiers are set at 2 point intervals.<br><hr>
+                An 8 results in a -1 ability modifier, a 10 results in a 0, a 12 results in a +1, and so on.<br><hr>
+                Ability scores are purchased using the DnD 5e point-buy system.</p>
+
+                
+                <label for="name">Name:</label>
+
+                <input type="text" id="name" name="name" required>
+                
+                <h4 id = "point-buy"> Available Points: 27/27</h4>
+                <div class = stat-container>
+                    <ul class = stat-list>
+                        <li class = stat-item>
+                            <div class = stat-info>
+                                <h3 id = "strength" class = "stats">Strength: 8</h3>
+                                <button class="btn btn-pushable btn-pushable--black">▲</button>
+                                <button class="btn btn-pushable btn-pushable--black">▼</button>
+                                <p id = "str-cost">cost: 1</p>
+                            </div>
+                        </li>
+                        <li class = stat-item>
+                            <div class = stat-info>
+                                <h3 id = "dexterity" class = "stats">Dexterity: 8</h3>
+                                <button class="btn btn-pushable btn-pushable--black">▲</button>
+                                <button class="btn btn-pushable btn-pushable--black">▼</button>
+                                <p id = "str-cost">cost: 1</p>
+                            </div>
+                        </li>
+                        <li class = stat-item>
+                            <div class = stat-info>
+                                <h3 id = "constitution" class = "stats">Constitution: 8</h3>
+                                <button class="btn btn-pushable btn-pushable--black">▲</button>
+                                <button class="btn btn-pushable btn-pushable--black">▼</button>
+                                <p id = "str-cost">cost: 1</p>
+                            </div>
+                        </li>
+                        <li class = stat-item>
+                            <div class = stat-info>
+                                <h3 id = "wisdom" class = "stats">Wisdom: 8</h3>
+                                <button class="btn btn-pushable btn-pushable--black">▲</button>
+                                <button class="btn btn-pushable btn-pushable--black">▼</button>
+                                <p id = "str-cost">cost: 1</p>
+                            </div>
+                        </li>
+                        <li class = stat-item>
+                            <div class = stat-info>
+                                <h3 id = "intelligence" class = "stats">Intelligence: 8</h3>
+                                <button class="btn btn-pushable btn-pushable--black">▲</button>
+                                <button class="btn btn-pushable btn-pushable--black">▼</button>
+                                <p id = "str-cost">cost: 1</p>
+                            </div>
+                        </li>
+                        <li class = stat-item>
+                            <div class = stat-info>
+                                <h3 id = "charisma" class = "stats">Charisma: 8</h3>
+                                <button class="btn btn-pushable btn-pushable--black">▲</button>
+                                <button class="btn btn-pushable btn-pushable--black">▼</button>
+                                <p id = "str-cost">cost: 1</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <input type="submit" value="Submit">
+              </form>
+        </div>
+    </body>
+</html>

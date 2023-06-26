@@ -1,0 +1,252 @@
+body {
+    background-color: #b9b9b9;
+    font-family: "Arial", sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  header {
+    background-color: #112233;
+    color: #ffffff;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  nav {
+    background-color: #334455;
+    padding: 10px;
+  }
+  lable.form-submit {
+    padding: 10px;
+  }
+  form#character-search {
+    text-align: center;
+    margin-bottom: 10px;
+    padding: 12px 20px;
+  }
+  input#char-search {
+    margin-bottom: 10px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 5px solid rgb(8, 8, 8);
+  }
+  
+  div.character-list {
+    padding: 10px;
+    color: #ffffff;
+  }
+  
+  ul#characters {
+    list-style-type: none;
+    padding: 0;
+    font-family: Luminari;
+    font-style: italic;
+    font-variant: small-caps;
+  }
+  
+  div.stats-bar {
+    background-color: #778899;
+    color: #ffffff;
+    width: 250px;
+    position: fixed;
+    left: 0;
+    top: 300px;
+    bottom: 1;
+    height: 800px;
+    margin-top: 1;
+    display: flex;
+    justify-content: center;
+    border:10px solid rgb(25, 25, 31);
+    border-radius: 45px
+  }
+  
+  ul#stats-ul {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 0;
+  }
+  
+  ul.character-list li {
+    display: inline-block;
+    padding: 10px;
+    font-family: Luminari;
+    font-style: italic;
+    font-variant: small-caps;;
+    font-size: 55px;
+    
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  input[type="search"] {
+    width: 200px;
+    padding: 5px;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+  }
+  
+  ul#stats-ul li {
+    margin-bottom: 5px;
+    text-align: center;
+  }
+  
+  li#char-name {
+    font-family: Luminari;
+    font-style: Bold;
+    font-variant: small-caps;
+    font-size: 40px;
+    padding: 20px;
+  }
+  /*https://stackoverflow.com/questions/17386168/how-to-create-a-heart-shape-using-css Thank you for this tutorial!*/
+  
+  li#hitpoints  {
+        position: relative;
+        width: 100px;
+        height: 90px;
+        margin: 10px auto;
+        font-size: 25px;
+        font-weight: bold;
+        text-align: center; 
+      }
+      
+      #hitpoints::before, #hitpoints::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        width: 52px;
+        height: 80px;
+        border-radius: 50px 50px 0 0;
+        background: red;
+      }
+      
+      #hitpoints::before {
+        left: 50px;
+        transform: rotate(-45deg);
+        transform-origin: 0 100%;
+      }
+      
+      #hitpoints::after {
+        left: 0;
+        transform: rotate(45deg);
+        transform-origin: 100% 100%;
+    }
+    #hitpoints span {
+        position: absolute;
+        top: 35%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        z-index: 1;
+      }
+  
+  .stat {
+    font-size: 34px;
+    font-weight: bold;
+    font-family: Luminari;
+    font-style: italic;
+    font-variant: small-caps;
+    padding: 25px;
+  }
+  #character-gen {
+    background-color: #778899;
+    border: 10px solid rgb(8, 8, 8);
+    color: #ffffff;
+    position: relative;
+    text-align: center;
+    border-radius: 45px;
+    padding: 45px;
+    width: 400px;
+    margin: 0 auto;
+  }
+  #character-gen input {
+    padding: 10px 10px;
+    background-color: #334455;
+    color: #ffffff;
+    border: none;
+    border-radius: 3px;
+    box-sizing: border-box;
+    border: 5px solid rgb(8, 8, 8);
+  }
+
+  .btn {  
+  font-family: Arial, Helvetica, sans-serif;  
+  text-transform: uppercase;
+  text-align: center;
+  } 
+   
+  .btn:hover.btn-slide-show-text1 {  
+  margin-left: 15px;
+  }  
+  
+  .btn-pushable {
+  padding: 15px;  
+  margin-right: 5px;  
+  height: 25px;  
+  width: 25px;  
+  border: none;  
+  outline: none;  
+  color: rgb(255, 255, 255);  
+  font-family: inherit;  
+  border-radius: 3px;
+  }  
+  
+  .btn-pushable:hover {  
+  transition: all 0.1s ease-in 0s;
+  }  
+  
+  .btn-pushable:active {  
+  transform: translateY(4px);  
+  border-bottom-width: 2px;  
+  box-shadow: none;
+  }  
+  
+  .btn-pushable--black {  
+  background: rgb(51, 51, 51);  
+  box-shadow: rgb(51, 51, 51) 0px 6px 0px;  
+  border-bottom: 3px solid rgb(34, 34, 34);
+  }  
+  
+  .btn-pushable--black:hover { 
+   background: rgb(34, 34, 34);  
+  box-shadow: rgb(34, 34, 34) 0px 4px 1px;  
+  border-bottom: 3px solid rgb(17, 17, 17);
+  }
+
+  .stat-container {
+    display: flex;
+    align-items: start;
+}
+
+.stat-container .stat-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.stat-container .stat-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1px;
+}
+
+.stat-container .stat-info {
+    display: flex;
+    align-items: center;
+    margin-right: 25px;
+}
+
+.stat-container p {
+    margin: 0;
+}
+
+.stats {
+    font-size: 28px;
+    font-weight: bold;
+    font-family: Luminari;
+    font-style: italic;
+    font-variant: small-caps;
+    padding-right: 50px;
+}

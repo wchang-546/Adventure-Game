@@ -1,0 +1,16 @@
+{   
+    "characters": [
+        {
+            "id": 1,
+            "name": "Testman",
+            "currentHp": 10,
+            "totalHp": 10,
+            "str": 18,
+            "dex": 18,
+            "con": 18,
+            "wis": 18,
+            "int": 18,
+            "cha": 18
+        }
+    ]
+}
