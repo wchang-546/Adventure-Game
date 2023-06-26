@@ -26,11 +26,26 @@ const charSearch = () => {
                 addConfirm.style.width = "150px"
                 addConfirm.style.height = "75px"
                 addConfirm.addEventListener("click", () => {
-                    generateCharacter(fetchPlayer)
+                    if(fetchPlayer){
+                        generateCharacter(fetchPlayer)
+                    } else {
+                        alert("character not found")
+                    }
                 })
                 listCharacter.append(addChar, addConfirm)
             })
         })
+}
+async function postCharacter(newChar) {
+    await fetch("http://localhost:3000/characters", {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        },
+        body: JSON.stringify(newChar)
+    }) 
+    .then(console.log(newChar))
 }
 //Takes an object of character information, either from the db.json or from the (eventually) character creation section and adds their stats to the sidebar)
 const generateCharacter = (pcInfo) => {
@@ -80,12 +95,10 @@ async function fetchChar(input) {
     
     fetchPlayer = characters.find(character => character.name.toLowerCase() === input);
 
-    if(fetchPlayer) {
-        return fetchPlayer;
-    } else {
-        alert ('character not found')
-    }
-}
+        if(fetchPlayer) {
+            return fetchPlayer;
+        }
+} 
 //Initialize the character creation menu on the front page
 const initCharMaker = () => {
     //JS side stats
@@ -136,7 +149,7 @@ const initCharMaker = () => {
     const chaCostText = document.getElementById("cha-cost")
     //Assign and handle up/down arrow functionality to change the values of the stats.
     strUp.addEventListener("click", () => {
-        if (totalPoints > 0 && totalPoints > strCost && str <= 15) {
+        if (totalPoints > 0 && totalPoints >= strCost && str <= 15) {
             totalPoints -= strCost;
             str++
             strStatShow.textContent = `Strength: ${str}`
@@ -162,7 +175,7 @@ const initCharMaker = () => {
           } 
     })
     dexUp.addEventListener("click", () => {
-        if (totalPoints > 0 && totalPoints > dexCost && str <= 15) {
+        if (totalPoints > 0 && totalPoints >= dexCost && dex <= 15) {
             totalPoints -= dexCost;
             dex++
             dexStatShow.textContent = `Dexterity: ${dex}`
@@ -188,7 +201,7 @@ const initCharMaker = () => {
           } 
     })
     conUp.addEventListener("click", () => {
-        if (totalPoints > 0 && totalPoints > conCost && con <= 15) {
+        if (totalPoints > 0 && totalPoints >= conCost && con <= 15) {
             totalPoints -= conCost;
             con++
             conStatShow.textContent = `Constitution: ${con}`
@@ -214,7 +227,7 @@ const initCharMaker = () => {
           } 
     })
     wisUp.addEventListener("click", () => {
-        if (totalPoints > 0 && totalPoints > wisCost && wis <= 15) {
+        if (totalPoints > 0 && totalPoints >= wisCost && wis <= 15) {
             totalPoints -= wisCost;
             wis++
             wisStatShow.textContent = `Wisdom: ${wis}`
@@ -240,7 +253,7 @@ const initCharMaker = () => {
           } 
     })
     intUp.addEventListener("click", () => {
-        if (totalPoints > 0 && totalPoints > intCost && int <= 15) {
+        if (totalPoints > 0 && totalPoints >= intCost && int <= 15) {
             totalPoints -= intCost;
             int++
             intStatShow.textContent = `Intelligence: ${int}`
@@ -266,7 +279,7 @@ const initCharMaker = () => {
           } 
     })
     chaUp.addEventListener("click", () => {
-        if (totalPoints > 0 && totalPoints > chaCost && cha <= 15) {
+        if (totalPoints > 0 && totalPoints >= chaCost && cha <= 15) {
             totalPoints -= chaCost;
             cha++
             chaStatShow.textContent = `Charisma: ${cha}`
@@ -290,6 +303,57 @@ const initCharMaker = () => {
                 chaCostText.textContent = `cost: ${chaCost}`
             }
           } 
+    })
+    //grab Name input box and submit character Generation
+    const nameSubmitBtn = document.getElementById("character-gen")
+    nameSubmitBtn.addEventListener("submit", e => {
+        e.preventDefault()
+        const nameInput = document.getElementById("name").value
+        if(totalPoints === 0){
+            const generatedCharacter = {
+                "name": nameInput,
+                "currentHp": 10,
+                "totalHp": 10,
+                "AC": Math.floor((dex - 10) / 2) + 10,
+                "str": str,
+                "dex": dex,
+                "con": con,
+                "wis": wis,
+                "int": int,
+                "cha": cha,
+                "str-mod": Math.floor((str - 10) / 2),
+                "dex-mod": Math.floor((dex - 10) / 2),
+                "con-mod": Math.floor((con - 10) / 2),
+                "wis-mod": Math.floor((wis - 10) / 2),
+                "int-mod": Math.floor((int - 10) / 2),
+                "cha-mod": Math.floor((cha- 10) / 2),
+                "potions": 0,
+                "main-hand": "empty",
+                "off-hand": "empty",
+                "armor": "empty",
+                "ranged": "empty",
+                "spell-1": "firebolt",
+                "spell-2": "empty",
+                "spell-3": "empty",
+                "spell-4": "empty",
+                "spell-5": "empty"
+            }
+            fetchChar(generatedCharacter.name)
+            .then(res => {
+                if(fetchPlayer === undefined) {
+                    playerCharacter = generatedCharacter
+                    console.log(generatedCharacter)
+                    generateCharacter(generatedCharacter)
+                    postCharacter(playerCharacter)
+                    const clearCenter = document.getElementById("initialized-character-generator")
+                    clearCenter.innerHTML = ""
+                } else {
+                    alert("A character with this name already exists")
+                }
+            }) 
+        } else {
+            alert('You still have points to spend!')
+        }
     })
 }
 
