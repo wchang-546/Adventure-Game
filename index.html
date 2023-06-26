@@ -11,8 +11,8 @@
                 <form id="character-search" class="form-submit">
                     <div>
                         <label for="search" class = "form-submit">Looking to replay a previous character? search here!</label>
-                        <input type="text" name="search" placeholder="Enter Character Name" id = "char-search" required>
-                        <input type="submit" value="submit" id="char-input-confirm">
+                        <input type="text" name="search" placeholder="Enter Character Name" id = "char-search" class = "submit-button" required>
+                        <input type="submit" value="submit" id="char-input-confirm" class = "submit-button">
                     </div>
                 </form>
                 <div id ="pregen-characters" class = "character-list">
@@ -34,75 +34,74 @@
             </ul>
         </div>
         <div id = "initialized-character-generator">
-            <form id = "character-gen">
+            
+            
+            
+                <form id = "character-gen" class = character-gen>
+                    <h2 id = "character-gen-name">Create your Character</h2>
+                    <p class = "paragraph">Generated characters will be saved at the start. please name your character and adjust your attribute points as you see fit and hit the submit button.</p>
+                    <label for="name">Name:</label>
 
-                <h2 id = "character-gen-name">Create your Character</h2>
-                <p class = "paragraph">Generated characters will be saved at the start, allowing you to replay as your favorite character<br><hr>
-                Characters can have anywhere between 8 and 15 for their starting ability scores.<br><hr>
-                Ability scores have a modifier attached to them--the modifiers are set at 2 point intervals.<br><hr>
-                An 8 results in a -1 ability modifier, a 10 results in a 0, a 12 results in a +1, and so on.<br><hr>
-                Ability scores are purchased using the DnD 5e point-buy system.</p>
-
+                    <input type="text" id="name" name="name" class = "submit-button" required>
+                    
+                    <input type="submit" value="Submit" class = "submit-button">
+                </form>
                 
-                <label for="name">Name:</label>
-
-                <input type="text" id="name" name="name" required>
-                
-                <h4 id = "point-buy"> Available Points: 27/27</h4>
-                <div class = stat-container>
+                <div id = "main-screen" class = stat-container>
+                    <h2 id = "point-buy"> Available Points: 27/27</h2> <br>
                     <ul class = stat-list>
                         <li class = stat-item>
                             <div class = stat-info>
                                 <h3 id = "strength" class = "stats">Strength: 8</h3>
-                                <button class="btn btn-pushable btn-pushable--black">▲</button>
-                                <button class="btn btn-pushable btn-pushable--black">▼</button>
+                                <button id = "str-up" class="btn btn-pushable btn-pushable--black">▲</button>
+                                <button id = "str-down" class="btn btn-pushable btn-pushable--black">▼</button>
                                 <p id = "str-cost">cost: 1</p>
                             </div>
                         </li>
                         <li class = stat-item>
                             <div class = stat-info>
                                 <h3 id = "dexterity" class = "stats">Dexterity: 8</h3>
-                                <button class="btn btn-pushable btn-pushable--black">▲</button>
-                                <button class="btn btn-pushable btn-pushable--black">▼</button>
-                                <p id = "str-cost">cost: 1</p>
+                                <button id = "dex-up" class="btn btn-pushable btn-pushable--black">▲</button>
+                                <button id = "dex-down" class="btn btn-pushable btn-pushable--black">▼</button>
+                                <p id = "dex-cost">cost: 1</p>
                             </div>
                         </li>
                         <li class = stat-item>
                             <div class = stat-info>
                                 <h3 id = "constitution" class = "stats">Constitution: 8</h3>
-                                <button class="btn btn-pushable btn-pushable--black">▲</button>
-                                <button class="btn btn-pushable btn-pushable--black">▼</button>
-                                <p id = "str-cost">cost: 1</p>
+                                <button id = "con-up"class="btn btn-pushable btn-pushable--black">▲</button>
+                                <button id = "con-down" class="btn btn-pushable btn-pushable--black">▼</button>
+                                <p id = "con-cost">cost: 1</p>
                             </div>
                         </li>
                         <li class = stat-item>
                             <div class = stat-info>
                                 <h3 id = "wisdom" class = "stats">Wisdom: 8</h3>
-                                <button class="btn btn-pushable btn-pushable--black">▲</button>
-                                <button class="btn btn-pushable btn-pushable--black">▼</button>
-                                <p id = "str-cost">cost: 1</p>
+                                <button id = "wis-up" class="btn btn-pushable btn-pushable--black">▲</button>
+                                <button id = "wis-down" class="btn btn-pushable btn-pushable--black">▼</button>
+                                <p id = "wis-cost">cost: 1</p>
                             </div>
                         </li>
                         <li class = stat-item>
                             <div class = stat-info>
                                 <h3 id = "intelligence" class = "stats">Intelligence: 8</h3>
-                                <button class="btn btn-pushable btn-pushable--black">▲</button>
-                                <button class="btn btn-pushable btn-pushable--black">▼</button>
-                                <p id = "str-cost">cost: 1</p>
+                                <button id = "int-up" class="btn btn-pushable btn-pushable--black">▲</button>
+                                <button id = "int-down" class="btn btn-pushable btn-pushable--black">▼</button>
+                                <p id = "int-cost">cost: 1</p>
                             </div>
                         </li>
                         <li class = stat-item>
                             <div class = stat-info>
                                 <h3 id = "charisma" class = "stats">Charisma: 8</h3>
-                                <button class="btn btn-pushable btn-pushable--black">▲</button>
-                                <button class="btn btn-pushable btn-pushable--black">▼</button>
-                                <p id = "str-cost">cost: 1</p>
+                                <button id = "cha-up"class="btn btn-pushable btn-pushable--black">▲</button>
+                                <button id = "cha-down" class="btn btn-pushable btn-pushable--black">▼</button>
+                                <p id = "cha-cost">cost: 1</p>
                             </div>
                         </li>
                     </ul>
+                    
                 </div>
-                <input type="submit" value="Submit">
-              </form>
+              
         </div>
     </body>
 </html>

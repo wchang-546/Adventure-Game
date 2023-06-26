@@ -5,12 +5,29 @@
             "name": "Testman",
             "currentHp": 10,
             "totalHp": 10,
+            "AC": 14,
             "str": 18,
             "dex": 18,
             "con": 18,
             "wis": 18,
             "int": 18,
-            "cha": 18
+            "cha": 18,
+            "str-mod": 4,
+            "dex-mod": 4,
+            "con-mod": 4,
+            "wis-mod": 4,
+            "int-mod": 4,
+            "cha-mod": 4,
+            "potions": 0,
+            "main-hand": "empty",
+            "off-hand": "empty",
+            "armor": "empty",
+            "ranged": "empty",
+            "spell-1": "firebolt",
+            "spell-2": "empty",
+            "spell-3": "empty",
+            "spell-4": "empty",
+            "spell-5": "empty"
         }
     ]
 }

@@ -86,11 +86,212 @@ async function fetchChar(input) {
         alert ('character not found')
     }
 }
+//Initialize the character creation menu on the front page
+const initCharMaker = () => {
+    //JS side stats
+    let str = 8
+    let dex = 8
+    let con = 8
+    let wis = 8
+    let int = 8
+    let cha = 8
+    let totalPoints = 27
+    //JS side cost per point
+    let strCost = 1
+    let dexCost = 1
+    let conCost = 1
+    let wisCost = 1
+    let intCost = 1
+    let chaCost = 1
+    //breakpoint for point-buy
+    const costBreakpoint = 13
+    //Point Buy Counter
+    const pointBuy = document.getElementById("point-buy")
+    //All textboxes related to the shown stats
+    const strStatShow = document.getElementById("strength")
+    const dexStatShow = document.getElementById("dexterity")
+    const conStatShow = document.getElementById("constitution")
+    const wisStatShow = document.getElementById("wisdom")
+    const intStatShow = document.getElementById("intelligence")
+    const chaStatShow = document.getElementById("charisma")
+    //All up and down buttons for the point-buy
+    const strUp = document.getElementById("str-up")
+    const strDown = document.getElementById("str-down")
+    const dexUp = document.getElementById("dex-up")
+    const dexDown = document.getElementById("dex-down")
+    const conUp = document.getElementById("con-up")
+    const conDown = document.getElementById("con-down")
+    const wisUp = document.getElementById("wis-up")
+    const wisDown = document.getElementById("wis-down")
+    const intUp = document.getElementById("int-up")
+    const intDown = document.getElementById("int-down")
+    const chaUp = document.getElementById("cha-up")
+    const chaDown = document.getElementById("cha-down")
+    //Grab the Cost text for each
+    const strCostText = document.getElementById("str-cost")
+    const dexCostText = document.getElementById("dex-cost")
+    const conCostText = document.getElementById("con-cost")
+    const wisCostText = document.getElementById("wis-cost")
+    const intCostText = document.getElementById("int-cost")
+    const chaCostText = document.getElementById("cha-cost")
+    //Assign and handle up/down arrow functionality to change the values of the stats.
+    strUp.addEventListener("click", () => {
+        if (totalPoints > 0 && totalPoints > strCost && str <= 15) {
+            totalPoints -= strCost;
+            str++
+            strStatShow.textContent = `Strength: ${str}`
+            pointBuy.textContent = `Available Points: ${totalPoints}/27`
+            console.log(str, totalPoints, strCost)
+            if(str >= costBreakpoint){
+                strCost = 2
+                strCostText.textContent = `cost: ${strCost}`
+            }
+          } 
+    })
+    strDown.addEventListener("click", () => {
+        if (totalPoints <= 27 && totalPoints + strCost < 28 && str > 8) {
+            totalPoints += strCost;
+            str--
+            strStatShow.textContent = `Strength: ${str}`
+            pointBuy.textContent = `Available Points: ${totalPoints}/27`
+            console.log(str, totalPoints, strCost)
+            if(str < costBreakpoint + 1){
+                strCost = 1
+                strCostText.textContent = `cost: ${strCost}`
+            }
+          } 
+    })
+    dexUp.addEventListener("click", () => {
+        if (totalPoints > 0 && totalPoints > dexCost && str <= 15) {
+            totalPoints -= dexCost;
+            dex++
+            dexStatShow.textContent = `Dexterity: ${dex}`
+            pointBuy.textContent = `Available Points: ${totalPoints}/27`
+            console.log(dex, totalPoints, dexCost)
+            if(dex >= costBreakpoint){
+                dexCost = 2
+                dexCostText.textContent = `cost: ${dexCost}`
+            }
+          } 
+    })
+    dexDown.addEventListener("click", () => {
+        if (totalPoints <= 27 && totalPoints + dexCost < 28 && dex > 8) {
+            totalPoints += dexCost;
+            dex--
+            dexStatShow.textContent = `Dexterity: ${dex}`
+            pointBuy.textContent = `Available Points: ${totalPoints}/27`
+            console.log(dex, totalPoints, dexCost)
+            if(dex < costBreakpoint + 1){
+                dexCost = 1
+                dexCostText.textContent = `cost: ${dexCost}`
+            }
+          } 
+    })
+    conUp.addEventListener("click", () => {
+        if (totalPoints > 0 && totalPoints > conCost && con <= 15) {
+            totalPoints -= conCost;
+            con++
+            conStatShow.textContent = `Constitution: ${con}`
+            pointBuy.textContent = `Available Points: ${totalPoints}/27`
+            console.log(con, totalPoints, conCost)
+            if(con >= costBreakpoint){
+                conCost = 2
+                conCostText.textContent = `cost: ${conCost}`
+            }
+          } 
+    })
+    conDown.addEventListener("click", () => {
+        if (totalPoints <= 27 && totalPoints + conCost < 28 && con > 8) {
+            totalPoints += conCost;
+            con--
+            conStatShow.textContent = `Constitution: ${con}`
+            pointBuy.textContent = `Available Points: ${totalPoints}/27`
+            console.log(con, totalPoints, conCost)
+            if(con < costBreakpoint + 1){
+                conCost = 1
+                conCostText.textContent = `cost: ${conCost}`
+            }
+          } 
+    })
+    wisUp.addEventListener("click", () => {
+        if (totalPoints > 0 && totalPoints > wisCost && wis <= 15) {
+            totalPoints -= wisCost;
+            wis++
+            wisStatShow.textContent = `Wisdom: ${wis}`
+            pointBuy.textContent = `Available Points: ${totalPoints}/27`
+            console.log(wis, totalPoints, wisCost)
+            if(wis >= costBreakpoint){
+                wisCost = 2
+                wisCostText.textContent = `cost: ${wisCost}`
+            }
+          } 
+    })
+    wisDown.addEventListener("click", () => {
+        if (totalPoints <= 27 && totalPoints + wisCost < 28 && wis > 8) {
+            totalPoints += wisCost;
+            wis--
+            wisStatShow.textContent = `Wisdom: ${wis}`
+            pointBuy.textContent = `Available Points: ${totalPoints}/27`
+            console.log(wis, totalPoints, wisCost)
+            if(wis < costBreakpoint + 1){
+                wisCost = 1
+                wisCostText.textContent = `cost: ${wisCost}`
+            }
+          } 
+    })
+    intUp.addEventListener("click", () => {
+        if (totalPoints > 0 && totalPoints > intCost && int <= 15) {
+            totalPoints -= intCost;
+            int++
+            intStatShow.textContent = `Intelligence: ${int}`
+            pointBuy.textContent = `Available Points: ${totalPoints}/27`
+            console.log(int, totalPoints, intCost)
+            if(int >= costBreakpoint){
+                intCost = 2
+                intCostText.textContent = `cost: ${intCost}`
+            }
+          } 
+    })
+    intDown.addEventListener("click", () => {
+        if (totalPoints <= 27 && totalPoints + intCost < 28 && int > 8) {
+            totalPoints += intCost;
+            int--
+            intStatShow.textContent = `Intelligence: ${int}`
+            pointBuy.textContent = `Available Points: ${totalPoints}/27`
+            console.log(int, totalPoints, intCost)
+            if(int < costBreakpoint + 1){
+                intCost = 1
+                intCostText.textContent = `cost: ${intCost}`
+            }
+          } 
+    })
+    chaUp.addEventListener("click", () => {
+        if (totalPoints > 0 && totalPoints > chaCost && cha <= 15) {
+            totalPoints -= chaCost;
+            cha++
+            chaStatShow.textContent = `Charisma: ${cha}`
+            pointBuy.textContent = `Available Points: ${totalPoints}/27`
+            console.log(cha, totalPoints, chaCost)
+            if(cha >= costBreakpoint){
+                chaCost = 2
+                chaCostText.textContent = `cost: ${chaCost}`
+            }
+          } 
+    })
+    chaDown.addEventListener("click", () => {
+        if (totalPoints <= 27 && totalPoints + chaCost < 28 && cha > 8) {
+            totalPoints += chaCost;
+            cha--
+            chaStatShow.textContent = `Charisma: ${cha}`
+            pointBuy.textContent = `Available Points: ${totalPoints}/27`
+            console.log(cha, totalPoints, chaCost)
+            if(cha < costBreakpoint + 1){
+                chaCost = 1
+                chaCostText.textContent = `cost: ${chaCost}`
+            }
+          } 
+    })
+}
 
-
-
-
-
-
-
+initCharMaker()
 charSearch()

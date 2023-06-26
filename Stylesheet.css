@@ -47,11 +47,11 @@ body {
   div.stats-bar {
     background-color: #778899;
     color: #ffffff;
-    width: 250px;
-    position: fixed;
-    left: 0;
-    top: 300px;
+    position: absolute;
+    left: 40px;
     bottom: 1;
+    top: 350px;
+    width: 250px;
     height: 800px;
     margin-top: 1;
     display: flex;
@@ -151,18 +151,19 @@ body {
     font-variant: small-caps;
     padding: 25px;
   }
-  #character-gen {
+  .character-gen {
     background-color: #778899;
     border: 10px solid rgb(8, 8, 8);
     color: #ffffff;
     position: relative;
     text-align: center;
+    top: 15px;
     border-radius: 45px;
     padding: 45px;
     width: 400px;
     margin: 0 auto;
   }
-  #character-gen input {
+  .submit-button {
     padding: 10px 10px;
     background-color: #334455;
     color: #ffffff;
@@ -176,6 +177,8 @@ body {
   font-family: Arial, Helvetica, sans-serif;  
   text-transform: uppercase;
   text-align: center;
+  position: relative;
+
   } 
    
   .btn:hover.btn-slide-show-text1 {  
@@ -219,6 +222,16 @@ body {
   .stat-container {
     display: flex;
     align-items: start;
+    background-color: #778899;
+    border: 10px solid rgb(8, 8, 8);
+    color: #ffffff;
+    position: relative;
+    text-align: center;
+    border-radius: 45px;
+    top: 25px;
+    padding: 45px;
+    width: 400px;
+    margin: 0 auto;
 }
 
 .stat-container .stat-list {
@@ -237,6 +250,16 @@ body {
     align-items: center;
     margin-right: 25px;
 }
+.stat-container h2 {
+  position: absolute;
+  top: 15px;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+}
 
 .stat-container p {
     margin: 0;
@@ -249,4 +272,18 @@ body {
     font-style: italic;
     font-variant: small-caps;
     padding-right: 50px;
+}
+
+.main-screen {
+  display: flex;
+    align-items: start;
+    background-color: #778899;
+    border: 10px solid rgb(8, 8, 8);
+    color: #ffffff;
+    position: relative;
+    text-align: center;
+    border-radius: 45px;
+    padding: 25px;
+    width: 1000px;
+    margin: 0 auto;
 }
